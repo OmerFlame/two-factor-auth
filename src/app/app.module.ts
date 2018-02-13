@@ -17,12 +17,14 @@ export const firebaseConfig = {
 import { AppComponent } from './app.component';
 import { AuthService } from './providers/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
