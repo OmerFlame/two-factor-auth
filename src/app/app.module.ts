@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,13 +13,17 @@ export const firebaseConfig = {
   databaseURL: "https://twofactorauthjs.firebaseio.com/",
   storageBucket: "gs://twofactorauthjs.appspot.com",
   messagingSenderID: "197504538508"
-}
+};
 
 import { AppComponent } from './app.component';
 import { AuthService } from './providers/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
+export const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'login', component: LoginPageComponent }
+];
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     AngularFireModule.initializeApp(firebaseConfig),
     MatButtonModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
